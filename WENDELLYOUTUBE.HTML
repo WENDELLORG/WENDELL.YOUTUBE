@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My YouTube Viewer</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 80%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 300px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: #FF0000;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Watch YouTube Videos!</h1>
+    <p>Paste a YouTube video ID below (Example: dQw4w9WgXcQ):</p>
+    <input type="text" id="videoId" placeholder="Enter Video ID">
+    <br>
+    <button onclick="loadVideo()">Load Video</button>
+    <br>
+    <iframe id="youtubePlayer" src="" allowfullscreen></iframe>
+
+    <script>
+        function loadVideo() {
+            var videoId = document.getElementById('videoId').value;
+            if (videoId.trim() === '') {
+                alert('Please enter a valid video ID!');
+                return;
+            }
+            var player = document.getElementById('youtubePlayer');
+            var videoURL = 'https://www.youtube.com/embed/' + videoId;
+            player.src = videoURL;
+        }
+    </script>
+</body>
+</html>
